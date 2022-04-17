@@ -1,0 +1,131 @@
+html, body {
+    height: 100%;
+}
+
+h3 {
+    text-align:center;
+}
+
+.topColumn1, .topColumn2 {
+    float: left;
+    width: 50%;
+  }
+
+  .columns {
+      height: 50%;
+  }
+  
+  /* Stops the float property from affecting content after the columns */
+  .columns:after {
+    content: "";
+    display: table;
+    clear: both;
+    height: 50%;
+  }
+
+  .bottomColumn1, .bottomColumn2, .bottomColumn3 {
+      float: left;
+      width: 33.33%;
+  }
+  #chart{
+    text-align: center;
+    padding-top: 50px;
+  }
+  .arc text {
+    font: 10px sans-serif;
+    text-anchor: middle;
+  }
+  
+  .pieBox{
+      display: inline-block;
+      height: auto;
+  }
+  
+  #mainTooltip {
+      position: absolute;
+      min-width :90px;
+      height: 40px;
+      padding: 0 25px 25px 25px; 
+      background-color: rgba(0,0,0,0.9);
+      pointer-events: none;
+      fill: #fff;
+      color: #fff; 
+      text-anchor: middle;
+      text-align: center;
+      font-weight: bold;
+      z-index: 9999;
+  }
+  #mainTooltip:before {
+      border: solid;
+      border-color: rgba(0,0,0,0.9) transparent;
+      border-width: 10px 10px 0 10px;
+      top: 100%;
+      content: "";
+      left: 20%;
+      position: absolute;
+      z-index: 99;
+  }
+  #mainTooltip.hidden {
+      display: none;
+  }
+  body {
+    font-family: 'Roboto', sans-serif;
+    color: #333333;
+}
+
+/* Add shadow effect to chart. If you don't like it, get rid of it. */
+svg {
+    -webkit-filter: drop-shadow( 0px 3px 3px rgba(0,0,0,.3) );
+    filter: drop-shadow( 0px 3px 3px rgba(0,0,0,.25) );
+}
+
+/*Styling for the lines connecting the labels to the slices*/
+polyline{
+    opacity: .3;
+    stroke: black;
+    stroke-width: 2px;
+    fill: none;
+}
+
+/* Make the percentage on the text labels bold*/
+.labelName tspan {
+    font-style: normal;
+    font-weight: 700;
+}
+
+/* In biology we generally italicise species names. */
+.labelName {
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+body {
+	font: 11px sans-serif;
+	background-color: #ffffff;
+}
+        
+/* Legend Position Style */
+.legend {
+	position:absolute;
+	left:20px;
+	top:30px;
+}
+
+.axis text {
+	font: 10px sans-serif;
+}
+
+.axis line, .axis path {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+.tooltip {
+    position: absolute;
+    background: white;
+    border: 2px solid black;
+    left: 100px;
+    padding: 5px;
+    border-radius: 5px;
+  }

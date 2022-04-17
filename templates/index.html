@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<title>Visual Analysis of Public Health in USA</title>
+<meta charset="utf-8">
+<script src="https://unpkg.com/topojson@3"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.0/d3.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+<!-- <script src= "https://d3js.org/d3.v6.min.js"> </script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- <script src="https://d3js.org/d3.v3.min.js"></script> -->
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/d3-interpolate.v1.min.js" rel="external nofollow" ></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="../static/css/main.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<body>
+    <h3>Visual Analysis of Public Health In USA</h3>
+    <br/>
+    
+    <div class="columns">
+        <div class="topColumn1">
+            <div id="map" width="440" height="300"></div>
+            <div id="mapbody"> </div>
+        </div>
+        <div class="topColumn2">
+          Column 2
+        </div>
+    </div>
+
+    <div class="columns">
+        <div class="bottomColumn1">
+          Column 1
+        </div>
+        <div class="bottomColumn2">
+            <h3 id="cityName"></h3>
+            <br/>
+            <ul style="list-style-type:none;">
+                <li >
+                    <h3 id="deaths"></h3>
+                </li>
+                <br/>
+                <li id="insured"></li>
+                <br/>
+                <li id="Unemployed"></li>
+            </ul> 
+        </div>
+        <div class="bottomColumn3">
+            
+            <div id="mainPie"></div>
+            <div id="mainTooltip" class="hidden">
+                <p><span id="value"></span></p>
+              </div>
+        </div>
+    </div>
+
+
+
+</body>
+<script src="../static/js/newgeo.js"></script>
+<script src="../static/js/dataForState.js"></script>
+<!-- <script src="../static/js/dataForState.js"></script> -->
+<script src="../static/js/newdonut.js"></script>
+
+</html>
