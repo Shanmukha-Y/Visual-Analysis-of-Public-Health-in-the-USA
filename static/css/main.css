@@ -129,3 +129,15 @@ body {
     padding: 5px;
     border-radius: 5px;
   }
+
+  .d3-tip {
+    line-height: 1;
+    padding: 12px;
+    background: rgba(43,43,43, 0.8);
+    color: #fff;
+    border-radius: 2px;
+  }
+
+  path:hover {
+	fill-opacity: .7;
+}

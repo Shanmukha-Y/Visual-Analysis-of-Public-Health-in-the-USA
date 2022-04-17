@@ -1,23 +1,6 @@
-// var data = [
-//     {
-//         "str_lab": "A",
-//         "num": 100
-//     },
-//     {
-//         "str_lab": "B",
-//         "num": 44
-//     },
-//     {
-//         "str_lab": "C",
-//         "num": 215
-//     },
-//     {
-//         "str_lab": "D",
-//         "num": 385
-//     }
-// ];
 
-function donut(){
+
+function donut(selectedState){
     console.log('i am here')
 var width = 450;
 height = 450;
@@ -28,14 +11,14 @@ var radius = Math.min(width, height) / 2 - margin * 2;
 var divNode = d3.select("body").node();
 var outerRadius = radius*0.9;
 
-var selectedState = "New York";
-d3.csv("/static/data/deaths.csv", function (data1) {
+// var selectedState = "New York";
+d3.csv("/static/data/allMerged.csv", function (data1) {
   // console.log(data1);
   var data = [];
   var totalCount = 0;
   for (var i = 0; i < data1.length; i++) {
     if (data1[i]["State"] == selectedState) {
-        totalCount+= parseInt(data1[i]["Alzheimer's"]) + parseInt(data1[i]["Cancer"]) + parseInt(data1[i]["Heart"]) + parseInt(data1[i]["Respiratory"]) + parseInt(data1[i]["Stroke"])
+        totalCount = parseInt(data1[i]["Alzheimer's"]) + parseInt(data1[i]["Cancer"]) + parseInt(data1[i]["Heart"]) + parseInt(data1[i]["Respiratory"]) + parseInt(data1[i]["Stroke"])
       data.push(parseInt(data1[i]["Alzheimer's"]));
       data.push(parseInt(data1[i]["Cancer"]));
       data.push(parseInt(data1[i]["Heart"]));
@@ -46,7 +29,8 @@ d3.csv("/static/data/deaths.csv", function (data1) {
     }
   }
 
-//   console.log(data);
+  console.log(data);
+  console.log(totalCount);
 
   // set the color scale
   var color = d3
@@ -67,9 +51,13 @@ var pie = d3.pie()
         // console.log(d);
          return d; });
 
+
+
 d3.select("#chart").append("div")
     .attr("id","mainPie")
     .attr("class","pieBox");
+
+    d3.select("#mainPie").html("");
 
 var svgdonut = d3.select("#mainPie").append("svg")
     .attr("width", width)
@@ -110,7 +98,9 @@ var g = svgdonut.selectAll(".arc")
   g.append("path")
       .attr("d", arc)
       .style("fill", function(d, i) { return color(diseases[i]); })
-      .each(function(d) { d.outerRadius = outerRadius - 10; })
+      .each(function(d) {
+        console.log(d);
+         d.outerRadius = outerRadius - 10; })
       .on("mousemove", function(d, i) {
           d3.select(this)
               //.transition()
@@ -208,4 +198,4 @@ var g = svgdonut.selectAll(".arc")
 
 }
 
-donut()
+// donut()

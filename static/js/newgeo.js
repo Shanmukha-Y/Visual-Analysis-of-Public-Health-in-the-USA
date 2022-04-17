@@ -21,9 +21,28 @@ var svg = d3.select("#map")
   .append("svg")
   .attr("width", width)
   .attr("height", height);
-var selecteddisease = "Heart"
+
+  var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-5, 0])
+  .html(function(d) {
+      console.log(d);
+      return d["properties"]["name"]
+    // var dataRow = countryById.get(d.properties.name);
+    //    if (dataRow) {
+    //        console.log(dataRow);
+    //        return dataRow.states + ": " + dataRow.mortality;
+    //    } else {
+    //        console.log("no dataRow", d);
+    //        return d.properties.name + ": No data.";
+    //    }
+  })
+
+svg.call(tip);
+
+var selecteddisease = "Cancer"
 // Load in my states data!
-d3.csv("/static/data/deaths.csv", function(data) {
+d3.csv("/static/data/allMerged.csv", function(data) {
 	var dataArray = [];
 	for (var d = 0; d < data.length; d++) {
 		dataArray.push(parseFloat(data[d][selecteddisease]))
@@ -70,6 +89,14 @@ d3.csv("/static/data/deaths.csv", function(data) {
       .attr("d", path)
       .style("stroke", "#fff")
       .style("stroke-width", "1")
+	  .on('mouseover', tip.show)
+    	.on('mouseout', tip.hide)
+	  .on('click',function(d) {
+        // console.log(d)
+        console.log(d["properties"]["name"]);
+		getDataForState(d["properties"]["name"]);
+		donut(d["properties"]["name"]);
+    })
       .style("fill", function(d) { return ramp(d.properties.value) });
     
 		// add a legend
@@ -118,6 +145,30 @@ d3.csv("/static/data/deaths.csv", function(data) {
 			.call(yAxis)
   });
 });
+
+// Map the cities I have lived in!
+d3.csv("/static/data/fastfoodloc.csv", function(data1) {
+	// console.log(data);
+	data = []
+	for(var i=0;i<10;i++) {
+		data.push[data1[i]];
+	}
+	svg.selectAll("circle")
+	.data(data).enter()
+	.append("circle")
+	.attr("cx", function (d) {
+		var currArray = [d['longitude'], d['latitude']];
+		//  console.log(projection(currArray)[0]); 
+		 return projection(currArray)[0]; 
+		})
+	.attr("cy", function (d) {
+		var currArray = [d['longitude'], d['latitude']];
+		 return projection(currArray)[1]; 
+		})
+	.attr("r", "30px")
+	.attr("fill", "blue")
+
+}); 
 
 
 }
