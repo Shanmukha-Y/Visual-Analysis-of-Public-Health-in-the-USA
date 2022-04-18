@@ -40,13 +40,13 @@ var svg = d3.select("#map")
 
 svg.call(tip);
 
-var selecteddisease = "Cancer"
+var selectedDisease = "Cancer"
 // Load in my states data!
 d3.csv("/static/data/allMerged.csv", function(data) {
 	var dataArray = [];
 	for (var d = 0; d < data.length; d++) {
-		dataArray.push(parseFloat(data[d][selecteddisease]))
-        // console.log(data[d][selecteddisease])
+		dataArray.push(parseFloat(data[d][selectedDisease]))
+        // console.log(data[d][selectedDisease])
 	}
 	var minVal = d3.min(dataArray)
 	var maxVal = d3.max(dataArray)
@@ -63,7 +63,7 @@ d3.csv("/static/data/allMerged.csv", function(data) {
     //   console.log(dataState)
 
       // Grab data value 
-      var dataValue = data[i][selecteddisease];
+      var dataValue = data[i][selectedDisease];
 
       // Find the corresponding state inside the GeoJSON
       for (var j = 0; j < json.features.length; j++) {
