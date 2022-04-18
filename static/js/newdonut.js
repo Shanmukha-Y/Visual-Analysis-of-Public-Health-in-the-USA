@@ -184,7 +184,7 @@ var g = svgdonut.selectAll(".arc")
     svgdonut.append('text')
         .attr('class', 'toolCircle')
         .attr('dy', 0) // hard-coded. can adjust this to adjust text vertical alignment in tooltip
-        .html("<br>TOTAL </br>"+"<br />" +totalCount) // add text to the circle.
+        .html("<br> </br>"+"<br />" +selectedState) // add text to the circle.
         .style('font-size', 20)
         .style('text-anchor', 'middle'); // centres text in tooltip
 

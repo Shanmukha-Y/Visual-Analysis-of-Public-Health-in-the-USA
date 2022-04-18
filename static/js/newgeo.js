@@ -26,7 +26,7 @@ var svg = d3.select("#map")
   .attr('class', 'd3-tip')
   .offset([-5, 0])
   .html(function(d) {
-      console.log(d);
+      // console.log(d);
       return d["properties"]["name"]
     // var dataRow = countryById.get(d.properties.name);
     //    if (dataRow) {
@@ -46,7 +46,7 @@ d3.csv("/static/data/allMerged.csv", function(data) {
 	var dataArray = [];
 	for (var d = 0; d < data.length; d++) {
 		dataArray.push(parseFloat(data[d][selecteddisease]))
-        console.log(data[d][selecteddisease])
+        // console.log(data[d][selecteddisease])
 	}
 	var minVal = d3.min(dataArray)
 	var maxVal = d3.max(dataArray)
@@ -118,7 +118,7 @@ d3.csv("/static/data/allMerged.csv", function(data) {
 			if(long > 0) {
 				long*=-1;
 			}
-			console.log(long)
+			// console.log(long)
             return 'translate(' + projection([long,lat])[0] + "," + projection([long,lat])[1] + ')';
         });
 	

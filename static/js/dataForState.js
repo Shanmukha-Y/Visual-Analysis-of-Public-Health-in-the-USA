@@ -26,12 +26,12 @@ function getDataForState(currState) {
       }
     }
 
-    document.getElementById("deaths").textContent = "Deaths:    " + deathCount;
+    document.getElementById("deaths").textContent = "Total Deaths:    " + deathCount;
     document.getElementById("airQuality").textContent =
-      "Air Quality:    " + airQuality;
+      "Air Quality Index:    " + airQuality;
     document.getElementById("Unemployed").textContent =
-      "Unemployed %:    " + unemployed;
+      "Unemployed Rate :    " + unemployed+"%";
     document.getElementById("Uninsured").textContent =
-      "Uninsured:    " + Uninsured;
+      "Total Uninsured:    " + Uninsured;
   });
 }
