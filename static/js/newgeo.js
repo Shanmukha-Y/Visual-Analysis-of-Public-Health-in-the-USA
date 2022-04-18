@@ -81,6 +81,9 @@ d3.csv("/static/data/allMerged.csv", function(data) {
       }
     }
 
+	
+
+
     // Bind the data to the SVG and create one path per GeoJSON feature
     svg.selectAll("path")
       .data(json.features)
@@ -98,6 +101,30 @@ d3.csv("/static/data/allMerged.csv", function(data) {
 		donut(d["properties"]["name"]);
     })
       .style("fill", function(d) { return ramp(d.properties.value) });
+
+	  d3.csv("/static/data/fastfoodloc.csv", function(data) {
+		console.log(data);
+
+		
+		
+		svg.selectAll('.pin')
+        .data(data) // i.e. ds = {[12.521, 15.312], [616.122, -31.160]}
+        .enter().append('circle', '.pin')
+        .attr('r', 1)
+		.attr('transform', function (d) {
+			// console.log(d['longitude']+"  -> "+d['latitude']);
+			// console.log(projection([d['longitude'],d['latitude']])[0]);
+			var long = d['longitude'], lat = d['latitude'];
+			if(long > 0) {
+				long*=-1;
+			}
+			console.log(long)
+            return 'translate(' + projection([long,lat])[0] + "," + projection([long,lat])[1] + ')';
+        });
+	
+	}); 
+
+	  
     
 		// add a legend
 		var w = 80, h = 200;
@@ -147,28 +174,7 @@ d3.csv("/static/data/allMerged.csv", function(data) {
 });
 
 // Map the cities I have lived in!
-d3.csv("/static/data/fastfoodloc.csv", function(data1) {
-	// console.log(data);
-	data = []
-	for(var i=0;i<10;i++) {
-		data.push[data1[i]];
-	}
-	svg.selectAll("circle")
-	.data(data).enter()
-	.append("circle")
-	.attr("cx", function (d) {
-		var currArray = [d['longitude'], d['latitude']];
-		//  console.log(projection(currArray)[0]); 
-		 return projection(currArray)[0]; 
-		})
-	.attr("cy", function (d) {
-		var currArray = [d['longitude'], d['latitude']];
-		 return projection(currArray)[1]; 
-		})
-	.attr("r", "30px")
-	.attr("fill", "blue")
 
-}); 
 
 
 }
