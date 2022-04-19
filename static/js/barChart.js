@@ -28,7 +28,7 @@ function barChart(selectedState) {
         .style("padding", "10px")
 
 
-    var rowNames = ["Hospitals Count","Finance and insurance Firms","Uninsured"];
+    var rowNames = ["Hospitals Count","Insurance Firms","Uninsured"];
 
 
     // Parse the Data
@@ -39,18 +39,23 @@ d3.csv("/static/data/allMerged.csv", function(data1) {
     var max = Number.MIN_SAFE_INTEGER;
     for(var i=0;i<data1.length;i++) {
         if(data1[i]['State'] == selectedState) {
-            max = Math.max(data1[i]["Hospitals"], Math.max(data1[i]["Finance and insurance Firms"], data1[i]["Uninsured"]));
+            max = Math.max(data1[i]["Hospitals"], Math.max(Math.sqrt(data1[i]["Insurance Firms"]), data1[i]["Uninsured"]));
             rowData.push(parseInt(data1[i]["Hospitals"]));
-            rowData.push(parseInt(data1[i]["Finance and insurance Firms"]));
+            rowData.push(parseInt(Math.sqrt(data1[i]["Insurance Firms"])));
             rowData.push(parseInt(data1[i]["Uninsured"]));
         }
     }
 
     var mouseover = function(d,i) {
+      var x = d3.event.x,
+        y = d3.event.y;
         console.log(i);
         tooltip
             .html(rowNames[i] + "<br>" + "Count: " + d)
             .style("opacity", 1)
+            tooltip.style('top', y-10 + 'px'); // edited
+            tooltip.style('left', x+'px'); // edited
+            
       }
       var mouseleave = function(d) {
         tooltip
@@ -85,7 +90,7 @@ d3.csv("/static/data/allMerged.csv", function(data1) {
             console.log(rowData);
              return x(rowNames[i]); })
         .attr("width", x.bandwidth())
-        .attr("fill", "rgb(165, 33, 24)")
+        .attr("fill", "#1A3A3A")
 
       .on("mouseover", mouseover)
       .on("mouseleave", mouseleave)

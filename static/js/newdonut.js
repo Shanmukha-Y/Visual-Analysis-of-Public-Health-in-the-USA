@@ -36,7 +36,7 @@ d3.csv("/static/data/allMerged.csv", function (data1) {
   var color = d3
     .scaleOrdinal()
     .domain(["Alzheimer's", "Cancer", "Heart", "Respiratory", "Stroke"])
-    .range(d3.schemeReds[3]);
+    .range(["#067BC2","#ABDAE1","#AB2135","#F0CF65","#8E6E53"]);
 
 var arc = d3.arc()
     .padRadius(outerRadius)

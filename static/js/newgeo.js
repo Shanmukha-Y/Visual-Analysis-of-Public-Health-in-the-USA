@@ -3,9 +3,25 @@ function geomap(selectedDisease){
 var width = 700;
 var height = 350;
 
-
+if (selectedDisease=="Heart"){
 var lowColor = '#E97452'
-var highColor = '#8B0001'
+var highColor = '#AB2135'}
+
+if (selectedDisease=="Cancer"){
+  var lowColor = '#ABDAE1'
+  var highColor = '#20525A'}
+
+if (selectedDisease=="Stroke"){
+var lowColor = '#E97452'
+var highColor = '#8E6E53'}
+
+if (selectedDisease=="Alzheimer's"){
+  var lowColor = '#B0DFFD'
+  var highColor = '#067BC2'}
+
+if (selectedDisease=="Respiratory"){
+var lowColor = '#F7E9B6'
+var highColor = '#CAA316'}
 
 // D3 Projection
 var projection = d3.geoAlbersUsa()
@@ -161,7 +177,8 @@ d3.csv("/static/data/allMerged.csv", function(data) {
 			.attr("width", w - 50)
 			.attr("height", h)
 			.style("fill", "url(#gradient)")
-			.attr("transform", "translate(0,10)");
+			.attr("transform", "translate(0,10)")
+      ;
 
 		var y = d3.scaleLinear()
 			.range([h, 0])
