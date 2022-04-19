@@ -140,7 +140,7 @@ d3.csv("/static/data/allMerged.csv", function(data) {
       if (long>-10){
         long*=10
       }
-			console.log(long, lat)
+			// console.log(long, lat)
             return 'translate(' + projection([long,lat])[0] + "," + projection([long,lat])[1] + ')';
         });
 	
