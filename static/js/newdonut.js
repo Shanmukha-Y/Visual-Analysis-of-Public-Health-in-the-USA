@@ -101,6 +101,9 @@ var g = svgdonut.selectAll(".arc")
       .each(function(d) {
         console.log(d);
          d.outerRadius = outerRadius - 10; })
+         .on('click',function(d) {
+          console.log(d);
+      })
       .on("mousemove", function(d, i) {
           d3.select(this)
               //.transition()
@@ -158,6 +161,8 @@ var g = svgdonut.selectAll(".arc")
       
       .on("click", function() { 
         d3.select(this).transition().duration(200).delay(0).attrTween("d", function(d) {
+          console.log(diseases[d['index']]);
+          geomap(diseases[d['index']]);
           var i = d3.interpolate(d.outerRadius, outerRadius);
           return function(t) { d.outerRadius = i(t); return arc(d); };
         });

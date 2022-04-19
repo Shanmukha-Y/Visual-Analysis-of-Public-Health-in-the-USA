@@ -1,4 +1,4 @@
-function geomap(){
+function geomap(selectedDisease){
 //Width and height of map
 var width = 700;
 var height = 350;
@@ -17,6 +17,8 @@ var path = d3.geoPath() // path generator that will convert GeoJSON to SVG paths
   .projection(projection); // tell path generator to use albersUsa projection
 
 //Create SVG element and append map to the SVG
+d3.select("#map").html("");
+
 var svg = d3.select("#map")
   .append("svg")
   .attr("width", width)
@@ -40,7 +42,7 @@ var svg = d3.select("#map")
 
 svg.call(tip);
 
-var selectedDisease = "Cancer"
+
 // Load in my states data!
 d3.csv("/static/data/allMerged.csv", function(data) {
 	var dataArray = [];
@@ -99,6 +101,7 @@ d3.csv("/static/data/allMerged.csv", function(data) {
         console.log(d["properties"]["name"]);
 		getDataForState(d["properties"]["name"]);
 		donut(d["properties"]["name"]);
+    barChart(d["properties"]["name"]);
     })
       .style("fill", function(d) { return ramp(d.properties.value) });
 
@@ -178,4 +181,3 @@ d3.csv("/static/data/allMerged.csv", function(data) {
 
 
 }
-geomap()
