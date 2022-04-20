@@ -1,12 +1,12 @@
 categoricalAttributes = ["State"];
-numericalAttributes = ["Heart","Median AQI","Hospitals","Insurance Firms"];
+numericalAttributes = ["Heart","rate","Uninsured","Respiratory","Median AQI","Hospitals","Insurance Firms"];
 function pcp() {
   d3.csv("/static/data/allMerged.csv", function (data) {
     console.log("Inside PCP ");
     console.log(data);
     d3.select("#svgPcpPlot").html("");
-    var PcpMargin = { top: 30, right: 30, bottom: 90, left: 100 },
-      PCPWidth = 660 - PcpMargin.left - PcpMargin.right,
+    var PcpMargin = { top: 30, right: 100, bottom: 10, left: 100 },
+      PCPWidth = 800 - PcpMargin.left - PcpMargin.right,
       PCPHeight = 450 - PcpMargin.top - PcpMargin.bottom;
 
     var x = d3.scalePoint().range([0, PCPWidth], 1),
