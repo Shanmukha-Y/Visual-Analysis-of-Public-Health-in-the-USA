@@ -71,7 +71,7 @@ d3.csv("/static/data/allMerged.csv", function(data1) {
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x))
       .selectAll("text")
-        .attr("transform", "translate(-10,0)rotate(-45)")
+        .attr("transform", "translate(30,0)")
         .style("text-anchor", "end");
     
     // Add Y axis

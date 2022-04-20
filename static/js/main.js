@@ -3,4 +3,5 @@ window.onload = function() {
     getDataForState("New York");
     donut("New York");
     barChart("New York");
+    pcp();
 };

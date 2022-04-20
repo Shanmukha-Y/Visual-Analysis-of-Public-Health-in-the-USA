@@ -176,6 +176,13 @@ d3.csv("/static/data/allMerged.csv", function(data) {
 			.attr("stop-color", lowColor)
 			.attr("stop-opacity", 1);
 
+    legend.append("text")
+    .text(function (d) {
+      console.log("Hola Amigos");
+      console.log(d);
+      return "Hola";
+    });8
+
 		key.append("rect")
 			.attr("width", w - 50)
 			.attr("height", h)
@@ -196,7 +203,7 @@ d3.csv("/static/data/allMerged.csv", function(data) {
   });
 });
 
-// Map the cities I have lived in!
+
 
 
 
