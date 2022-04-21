@@ -3,6 +3,9 @@ function geomap(selectedDisease){
 var width = 700;
 var height = 350;
 
+var geoHeading = document.getElementById("geoHeadingText");
+geoHeading.innerHTML= "Geo Map of "+selectedDisease +" Disease";
+
 if (selectedDisease=="Heart"){
 var lowColor = '#E97452'
 var highColor = '#AB2135'}
@@ -149,13 +152,14 @@ d3.csv("/static/data/allMerged.csv", function(data) {
 	  
     
 		// add a legend
-		var w = 80, h = 200;
+		var w = 80, h = 250;
 
 		var key = d3.select("#map")
 			.append("svg")
 			.attr("width", w)
 			.attr("height", h)
-			.attr("class", "legend");
+			.attr("class", "legend")
+      .style("margin-top","100px");
 
 		var legend = key.append("defs")
 			.append("svg:linearGradient")
@@ -181,7 +185,7 @@ d3.csv("/static/data/allMerged.csv", function(data) {
       console.log("Hola Amigos");
       console.log(d);
       return "Hola";
-    });8
+    });
 
 		key.append("rect")
 			.attr("width", w - 50)

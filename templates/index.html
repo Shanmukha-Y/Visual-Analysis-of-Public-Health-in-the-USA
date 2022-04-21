@@ -28,19 +28,25 @@
     
     <div class="columns">
         <div class="topColumn1">
+            <div id="geoHeadingText"></div>
             <div id="map" width="440" height="300"></div>
             <div id="mapbody"> </div>
         </div>
         <div class="topColumn2">
+            <div id="pcpHeadingText">PCP Plot</div>
           <div id="svgPcpPlot"></div>
         </div>
     </div>
 
     <div class="columns">
         <div class="bottomColumn1">
+        <div id="barHeadingText">Bar Plot</div>
         <div id="barChart"></div>
         </div>
+
         <div class="bottomColumn2">
+            <!-- <div id="textHeadingText">State Data</div> -->
+            <br/><br/>
             <h3 id="cityName"></h3>
             <br/>
             <ul style="list-style-type:none;">
@@ -62,7 +68,7 @@
             </ul> 
         </div>
         <div class="bottomColumn3">
-            
+            <div id="pieHeadingText">Pie Chart</div>
             <div id="mainPie"></div>
             <div id="mainTooltip" class="hidden">
                 <p><span id="value"></span></p>
