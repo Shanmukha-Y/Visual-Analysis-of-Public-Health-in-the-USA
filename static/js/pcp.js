@@ -1,4 +1,4 @@
-categoricalAttributes = ["State"];
+categoricalAttributes = ["State","Region"];
 numericalAttributes = ["Heart","rate","Uninsured","Respiratory","Median AQI","Hospitals","Insurance Firms","Fast Food Centers"];
 function pcp() {
   d3.csv("/static/data/allMerged.csv", function (data) {
@@ -6,7 +6,7 @@ function pcp() {
     console.log(data);
     d3.select("#svgPcpPlot").html("");
     var PcpMargin = { top: 30, right: 100, bottom: 10, left: 100 },
-      PCPWidth = 800 - PcpMargin.left - PcpMargin.right,
+      PCPWidth = 900 - PcpMargin.left - PcpMargin.right,
       PCPHeight = 450 - PcpMargin.top - PcpMargin.bottom;
 
     var x = d3.scalePoint().range([0, PCPWidth], 1),

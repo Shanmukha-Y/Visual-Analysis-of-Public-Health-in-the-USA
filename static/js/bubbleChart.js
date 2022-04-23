@@ -55,7 +55,7 @@ bubbleHeading.innerHTML= "Bubble Chart of "+selectedDisease +" Disease";
       .attr("text-anchor", "end")
       .attr("x", 20)
       .attr("y",  0)
-      .text(selectedDisease+' Deaths')
+      .text(selectedDisease+' Related Deaths')
       .attr("text-anchor", "start")
 
     // Add a scale for bubble size
