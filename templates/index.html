@@ -12,7 +12,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://d3js.org/d3.v4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
-
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 <!-- <script src="https://d3js.org/d3.v3.min.js"></script> -->
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 <script src="https://d3js.org/d3-interpolate.v1.min.js" rel="external nofollow" ></script>
@@ -41,7 +41,8 @@
     <div class="columns">
         <div class="bottomColumn1">
         <div id="barHeadingText">Bar Plot</div>
-        <div id="barChart"></div>
+        <!-- <div id="barChart"></div> -->
+        <div id="bubbleChart"></div>
         </div>
 
         <div class="bottomColumn2">
@@ -51,23 +52,24 @@
             <br/>
             <ul style="list-style-type:none;">
                 <li >
-                    <h3 id="deaths"></h3>
+                    <h3 id="deaths" ></h3>
                 </li>
                 <br/>
                 <li>
-                    <h3 id="airQuality"></h3>
+                    <h3 id="airQuality" ></h3>
                 </li>
                 <br/>
                 <li>
-                    <h3 id="Unemployed"></h3>
+                    <h3 id="Unemployed" ></h3>
                 </li>
                 <br/>
                 <li>
-                    <h3 id="Uninsured"></h3>
+                    <h3 id="Uninsured" ></h3>
                 </li>
             </ul> 
         </div>
         <div class="bottomColumn3">
+            <!-- <p class="line-1 anim-typewriter">Animation typewriter style using css steps()</p> -->
             <div id="pieHeadingText">Pie Chart</div>
             <div id="mainPie"></div>
             <div id="mainTooltip" class="hidden">
@@ -83,6 +85,7 @@
 <script src="../static/js/dataForState.js"></script>
 <!-- <script src="../static/js/dataForState.js"></script> -->
 <script src="../static/js/newdonut.js"></script>
+<script src="../static/js/bubbleChart.js"></script>
 <script src="../static/js/pcp.js"></script>
 <script src="../static/js/barChart.js"></script>
 <script src="../static/js/main.js"></script>
