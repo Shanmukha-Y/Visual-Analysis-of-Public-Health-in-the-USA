@@ -184,7 +184,7 @@ d3.csv("/static/data/allMerged.csv", function(data) {
     .text(function (d) {
       console.log("Hola Amigos");
       console.log(d);
-      return "Hola";
+      return "Check if it is here";
     });
 
 		key.append("rect")

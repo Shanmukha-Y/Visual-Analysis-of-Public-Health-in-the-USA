@@ -1,11 +1,17 @@
 function bubbleChart(selectedDisease) {
 
-    selectedDisease = "Stroke"
+var bubbleHeading = document.getElementById("bubbleChartText");
+bubbleHeading.innerHTML= "Bubble Chart of "+selectedDisease +" Disease";
+
+    // selectedDisease = "Stroke"
   var margin = { top: 10, right: 20, bottom: 30, left: 50 },
     width = 500 - margin.left - margin.right,
     height = 420 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
+
+  d3.select("#bubbleChart").html("");
+
   var bubbleSvg = d3
     .select("#bubbleChart")
     .append("svg")
@@ -20,10 +26,12 @@ function bubbleChart(selectedDisease) {
     var allCityNames = [];
     var x_max = 0;
     var y_max = 0;
+    var z_max = 0;
     for(var i=0;i<data.length;i++) {
         allCityNames.push(data[i]['State']);
         y_max = Math.max(y_max, data[i][selectedDisease]);
         x_max = Math.max(x_max, data[i]['Fast Food Centers']);
+        z_max = Math.max(x_max, parseInt(data[i][selectedDisease]/data[i]['Fast Food Centers']));
     }
 
     // Add X axis
@@ -33,12 +41,25 @@ function bubbleChart(selectedDisease) {
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
 
+      bubbleSvg.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", 200)
+      .attr("y", 410 )
+      .text("No.of Fast food centres");
+
     // Add Y axis
     var y = d3.scaleLinear().domain([0, y_max]).range([height, 0]);
     bubbleSvg.append("g").call(d3.axisLeft(y));
 
+    bubbleSvg.append("text")
+      .attr("text-anchor", "end")
+      .attr("x", 20)
+      .attr("y",  0)
+      .text(selectedDisease+' Deaths')
+      .attr("text-anchor", "start")
+
     // Add a scale for bubble size
-    var z = d3.scaleLinear().domain([200000, 1310000000]).range([4, 40]);
+    var z = d3.scaleLinear().domain([0, z_max]).range([4, 40]);
 
     // Add a scale for bubble color
     var myColor = d3
@@ -47,11 +68,7 @@ function bubbleChart(selectedDisease) {
       .range(d3.schemeSet2);
 
 
-      bubbleSvg.append("text")
-      .attr("text-anchor", "end")
-      .attr("x", width)
-      .attr("y", height+50 )
-      .text("No.of Fast food centres");
+      
 
     // -1- Create a tooltip div that is hidden by default:
     var bubbleTooltip = d3
@@ -76,7 +93,7 @@ function bubbleChart(selectedDisease) {
       bubbleTooltip.transition().duration(200);
       bubbleTooltip
         .style("opacity", 1)
-        .html("State: " + d["State"])
+        .html("State: " + d["State"]+"<br/>"+"Ratio is: "+d[selectedDisease]/(d["Fast Food Centers"]))
         .style("left", d3.mouse(this)[0] + 30 + "px")
         .style("top", d3.mouse(this)[1] + 30 + "px");
     };
@@ -105,7 +122,11 @@ function bubbleChart(selectedDisease) {
       })
       .attr("r", function (d) {
         //   console.log(Math.log10(d[selectedDisease]/d["Fast Food Centers"]));
-        return d[selectedDisease]/(3*d["Fast Food Centers"]);
+        return z(d[selectedDisease]/(d["Fast Food Centers"]));
+        // if(selectedDisease == 'Cancer' || selectedDisease == "Heart") {
+        //     return d[selectedDisease]/(10*d["Fast Food Centers"]);
+        // }
+        // return d[selectedDisease]/(3*d["Fast Food Centers"]);
         // return Math.pow(d[selectedDisease], 1/3);
       })
       .style("fill", function (d) {

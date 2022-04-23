@@ -171,7 +171,7 @@ body {
     cursor: move;
   }
 
-  #geoHeadingText, #pcpHeadingText{
+  #geoHeadingText, #pcpHeadingText, #bubbleChartText{
     text-align: center;
     font-size: 25px;
     font-weight: bold;
@@ -208,6 +208,31 @@ body {
 }
 .bubbles:hover {
   stroke: black;
+}
+
+.ttip {
+  position: relative;
+  display: inline-block;
+  margin-left: 500px;
+  /* border-bottom: 1px dotted black; */
+}
+
+.ttip .ttext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.ttip:hover .ttext {
+  visibility: visible;
 }
 
 /* Animation */
