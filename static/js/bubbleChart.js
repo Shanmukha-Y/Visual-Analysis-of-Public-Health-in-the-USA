@@ -31,7 +31,7 @@ bubbleHeading.innerHTML= "Bubble Chart of "+selectedDisease +" Disease";
         allCityNames.push(data[i]['State']);
         y_max = Math.max(y_max, data[i][selectedDisease]);
         x_max = Math.max(x_max, data[i]['Fast Food Centers']);
-        z_max = Math.max(x_max, parseInt(data[i][selectedDisease]/data[i]['Fast Food Centers']));
+        z_max = Math.max(x_max, parseInt(data[i]['Hospitals']));
     }
 
     // Add X axis
@@ -93,9 +93,9 @@ bubbleHeading.innerHTML= "Bubble Chart of "+selectedDisease +" Disease";
       bubbleTooltip.transition().duration(200);
       bubbleTooltip
         .style("opacity", 1)
-        .html("State: " + d["State"]+"<br/>"+"Ratio is: "+d[selectedDisease]/(d["Fast Food Centers"]))
+        .html("State: " + d["State"]+"<br/>"+"Hospitals: "+d['Hospitals'])
         .style("left", d3.mouse(this)[0] + 30 + "px")
-        .style("top", d3.mouse(this)[1] + 30 + "px");
+        .style("top", d3.mouse(this)[1] + "px");
     };
     var moveTooltip = function (d) {
       bubbleTooltip
@@ -122,7 +122,7 @@ bubbleHeading.innerHTML= "Bubble Chart of "+selectedDisease +" Disease";
       })
       .attr("r", function (d) {
         //   console.log(Math.log10(d[selectedDisease]/d["Fast Food Centers"]));
-        return z(d[selectedDisease]/(d["Fast Food Centers"]));
+        return z(d['Hospitals']);
         // if(selectedDisease == 'Cancer' || selectedDisease == "Heart") {
         //     return d[selectedDisease]/(10*d["Fast Food Centers"]);
         // }
