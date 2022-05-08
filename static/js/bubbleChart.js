@@ -122,7 +122,7 @@ bubbleHeading.innerHTML= "Bubble Chart of "+selectedDisease +" Disease";
       })
       .attr("r", function (d) {
         //   console.log(Math.log10(d[selectedDisease]/d["Fast Food Centers"]));
-        return z(d['Hospitals']);
+        return z(d['Hospitals'])/2;
         // if(selectedDisease == 'Cancer' || selectedDisease == "Heart") {
         //     return d[selectedDisease]/(10*d["Fast Food Centers"]);
         // }
