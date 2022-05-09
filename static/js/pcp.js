@@ -9,7 +9,7 @@ function pcp() {
       PCPWidth = 900 - PcpMargin.left - PcpMargin.right,
       PCPHeight = 450 - PcpMargin.top - PcpMargin.bottom;
 
-    var colors = ["#e6194B","#f58231","#ffe119","#bfef45","#3cb44b","#42d4f4","#4363d8","#911eb4","#f032e6"];
+    var colors = ["rgb(247, 129, 191)","rgb(166, 86, 40)","rgb(255, 255, 51)","rgb(255, 127, 0)","rgb(152, 78, 163)","rgb(77, 175, 74)","rgb(55, 126, 184)","rgb(228, 26, 28)","rgb(153, 153, 153)"];
     var regions = getRegions();
 
     var x = d3.scalePoint().range([0, PCPWidth], 1),

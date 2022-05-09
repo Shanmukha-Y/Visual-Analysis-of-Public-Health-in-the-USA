@@ -163,6 +163,11 @@ function betterbubbleChart(selectedDisease) {
       .on("mousemove", moveTooltip)
       .on("mouseleave", hideTooltip);
 
+      d3.select("circle")
+      .call( d3.brushX()                     // Add the brush feature using the d3.brush function
+        .extent( [ [0,0], [width,height] ] )       // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
+      )
+
     // ---------------------------//
     //       LEGEND              //
     // ---------------------------//
