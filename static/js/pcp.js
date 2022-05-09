@@ -9,6 +9,9 @@ function pcp() {
       PCPWidth = 900 - PcpMargin.left - PcpMargin.right,
       PCPHeight = 450 - PcpMargin.top - PcpMargin.bottom;
 
+    var colors = ["#e6194B","#f58231","#ffe119","#bfef45","#3cb44b","#42d4f4","#4363d8","#911eb4","#f032e6"];
+    var regions = getRegions();
+
     var x = d3.scalePoint().range([0, PCPWidth], 1),
       y = {},
       dragging = {};
@@ -17,6 +20,11 @@ function pcp() {
       axis = d3.axisLeft(),
       background,
       foreground;
+
+    var regionLine = d3.line(),
+    axis = d3.axisRight(),
+    background,
+    foreground;
 
     var svg = d3
       .select("#svgPcpPlot")
@@ -76,7 +84,10 @@ function pcp() {
       .append("path")
       .attr("d", path)
       .attr("style", function (d) {
-        return "stroke:" + "rgb(188, 56, 61)" + ";";
+        // return "stroke:" + "rgb(188, 56, 61)" + ";";
+        console.log("Inside this :p");
+        console.log(colors[regions.get(d["Region"])]);
+        return "stroke:" + colors[regions.get(d["Region"])] + ";";
       });
 
     var g = svg
@@ -189,8 +200,10 @@ function pcp() {
     }
 
     function path(d) {
+      // console.log(d);
       return line(
         dimensions.map(function (p) {
+          console.log([position(p), y[p](d[p])]);
           return [position(p), y[p](d[p])];
         })
       );
@@ -199,5 +212,23 @@ function pcp() {
     function brushstart() {
       d3.event.sourceEvent.stopPropagation();
     }
+
+    function getRegions() {
+      let map = new Map();
+
+      map.set('West North Central', 0);
+      map.set('East North Central', 1);
+      map.set('South Atlantic', 2);
+      map.set('New England', 3);
+      map.set('West South Central', 4);
+      map.set('Mountain', 5);
+      map.set('Pacific', 6);
+      map.set('East South Central', 7);
+      map.set('Middle Atlantic', 8);
+
+      return map;
+    }
+
+
   });
 }
