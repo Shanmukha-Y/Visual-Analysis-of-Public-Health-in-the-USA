@@ -21,10 +21,10 @@ function pcp() {
       background,
       foreground;
 
-    var regionLine = d3.line(),
-    axis = d3.axisRight(),
-    background,
-    foreground;
+    // var regionLine = d3.line(),
+    // axis = d3.axisRight(),
+    // background,
+    // foreground;
 
     var svg = d3
       .select("#svgPcpPlot")

@@ -6,3 +6,8 @@ window.onload = function() {
     betterbubbleChart("Heart");
     pcp();
 };
+
+var card = document.querySelector('.card');
+card.addEventListener( 'click', function() {
+  card.classList.toggle('is-flipped');
+});

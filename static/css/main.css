@@ -8,37 +8,65 @@ h3 {
     text-align:center;
 }
 
-.topColumn1, .topColumn2 {
+.topColumn1{
     float: left;
     width: 50%;
     /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+    /* box-shadow: 0px 0px 4px 4px rgb(0 0 0 / 16%); */
   }
 
+  .topColumn2{
+    float: left;
+    width: 50%;
+    margin-left: 5px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+    }
+
   .columns {
-      height: 50%;
+    /* height: 50%; */
+    display: flex;
+    flex-direction: row;
+    height: 500px;
   }
   
   /* Stops the float property from affecting content after the columns */
   .columns:after {
     content: "";
-    display: table;
-    clear: both;
-    height: 50%;
+    display: flex;
+    flex-direction: row;
+    /* clear: both; */
+    /* height: 50%; */
+  }
+
+  .columns-down{
+    display: flex;
+    flex-direction: row;
+    width: 120%;
   }
 
   .bottomColumn1{
       float: left;
-      width: 50%;
+      /* width: 50%; */
       /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
   }
   .bottomColumn2{
     float: left;
-    width: 25%;
+    padding: 18px;
+    box-shadow: 0px 0px 4px 4px rgb(0 0 0 / 16%);
+    margin-left: 7px;
+    width: 22%;
     /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
 }
 .bottomColumn3 {
-  float: right;
-  width: 25%;
+  float: left;
+  width: 26%;
+  height: 463px;
+  float: left;
+  margin-left: 5px;
+    width: 25%;
+    /* width: fit-content; */
+    height: 463px;
+    box-shadow: 0px 0px 4px 4px rgb(0 0 0 / 16%);
   /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
 }
   #chart{
@@ -252,15 +280,26 @@ body {
 }
 
 .card {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   padding-right: 10px;
   padding-left: 10px;
-  transition: 0.3s;
+  transition: 0.3s; */
+      /* box-shadow: rgb(50 50 93 / 25%) 0px 50px 100px 2px, rgb(0 0 0 / 30%) 0px 30px 60px -30px, rgb(10 37 64 / 35%) 0px -2px 6px 0px inset; */
+      padding-right: 10px;
+      padding-left: 10px;
+      /* transition: 0.3s; */
+      box-shadow: 0px 0px 4px 4px rgb(0 0 0 / 16%);
+      margin-left: 5px;
+      z-index: 23px;
+      /* z-index: 1000; */
+      width: fit-content;
 }
 
-.card:hover {
+/* .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
+} */
+
+
 
 h3 {
   /* font-size: 6em;

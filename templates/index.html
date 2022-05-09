@@ -28,13 +28,13 @@
     
     <div class="columns">
         <div class="topColumn1">
-            <div class="card">
+            <div class="card" style="height: 490px;">
                 <div id="geoHeadingText"></div>
                 <div class="ttip">
                     <ul>
                         <li><b >Fast Food Center's</b></li>
                     </ul>
-                    <span class="ttext">The dots in the Geo Map represnts fast food center's</span>
+                    <span class="ttext">The dots in the Geo Map represents fast food center's</span>
                 </div>
                 <!-- <span >
                     <ul style="margin-left: 500px;">
@@ -46,17 +46,31 @@
             </div>
         </div>
         <div class="topColumn2">
-            <div id="pcpHeadingText">PCP Plot</div>
-          <div id="svgPcpPlot"></div>
+            <div class="card" style="height: 490px;">
+                 <div id="pcpHeadingText">PCP Plot</div>
+                 <div id="svgPcpPlot"></div>
+
+          </div>
         </div>
     </div>
 
-    <div class="columns">
+    <div class="columns-down">
         <div class="bottomColumn1">
-            <!-- <div id="barHeadingText">Bar Plot</div> -->
-            <div id="bubbleChartText"></div>
-            <!-- <div id="barChart"></div> -->
-            <div id="betterBubbleChart"></div>
+            <div class="card">
+                <!-- <div id="barHeadingText">Bar Plot</div> -->
+                <div id="bubbleChartText"></div>
+                <!-- <div id="barChart"></div> -->
+                <div id="betterBubbleChart"></div>
+            </div>
+        </div>
+
+        <div class="bottomColumn3">
+            <!-- <p class="line-1 anim-typewriter">Animation typewriter style using css steps()</p> -->
+            <div id="pieHeadingText">Donut Chart</div>
+            <div id="mainPie"></div>
+            <div id="mainTooltip" class="hidden">
+                <p><span id="value"></span></p>
+            </div>
         </div>
 
         <div class="bottomColumn2">
@@ -82,14 +96,7 @@
                 </li>
             </ul>
         </div>
-        <div class="bottomColumn3">
-            <!-- <p class="line-1 anim-typewriter">Animation typewriter style using css steps()</p> -->
-            <div id="pieHeadingText">Donut Chart</div>
-            <div id="mainPie"></div>
-            <div id="mainTooltip" class="hidden">
-                <p><span id="value"></span></p>
-            </div>
-        </div>
+        
     </div>
 
 
