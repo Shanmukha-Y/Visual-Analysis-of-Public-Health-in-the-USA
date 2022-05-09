@@ -3,6 +3,6 @@ window.onload = function() {
     getDataForState("New York");
     donut("New York");
     barChart("New York");
-    bubbleChart("Heart");
+    betterbubbleChart("Heart");
     pcp();
 };
