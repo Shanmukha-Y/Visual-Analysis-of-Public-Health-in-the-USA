@@ -192,7 +192,9 @@ var g = svgdonut.selectAll(".arc")
         .attr('dy', 0) // hard-coded. can adjust this to adjust text vertical alignment in tooltip
         .html("<br> </br>"+"<br />" +selectedState) // add text to the circle.
         .style('font-size', 20)
-        .style('text-anchor', 'middle'); // centres text in tooltip
+        .style('color','grey')
+        .style('text-anchor', 'middle')
+        .style('fill','white') // centres text in tooltip
 
     svgdonut.append('circle')
         .attr('class', 'toolCircle')

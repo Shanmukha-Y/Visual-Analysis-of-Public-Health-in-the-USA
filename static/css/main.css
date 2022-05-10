@@ -4,8 +4,11 @@ html, body {
     height: 100%;
 }
 
+
+
 h3 {
     text-align:center;
+    color: white;
 }
 
 .topColumn1{
@@ -143,7 +146,8 @@ polyline{
 
 body {
 	font: 11px sans-serif;
-	background-color: #ffffff;
+	background-color: #010114;
+  color: white;
 }
         
 /* Legend Position Style */
@@ -293,6 +297,7 @@ body {
       z-index: 23px;
       /* z-index: 1000; */
       width: fit-content;
+      background-color: #020a24;
 }
 
 /* .card:hover {
@@ -304,7 +309,7 @@ body {
 h3 {
   /* font-size: 6em;
   font-weight: 500; */
-  color: #222;
+  /* color: #222; */
   /* letter-spacing: 5px; */
   cursor: pointer;
   /* text-transform: uppercase; */
@@ -312,12 +317,23 @@ h3 {
 }
 
 h3:hover {
-  color: #fff;
   text-shadow: 0 0 5px #660708,
               0 0 25px #660708,
               0 0 50px #660708,
               0 0 100px #660708;
 }
+
+.axisWhite line{
+  stroke: white;
+}
+
+.axisWhite path{
+  stroke: white;
+}
+
+.axisWhite text{
+  fill: white;
+} 
 
 /* Animation */
 /* .anim-typewriter{

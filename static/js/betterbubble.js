@@ -49,6 +49,7 @@ function betterbubbleChart(selectedDisease) {
     bettersvg
       .append("g")
       .attr("transform", "translate(0," + height + ")")
+      .attr("class", "axisWhite")
       .call(d3.axisBottom(x).ticks(3));
 
     // Add X axis label:
@@ -57,11 +58,12 @@ function betterbubbleChart(selectedDisease) {
       .attr("text-anchor", "end")
       .attr("x", width)
       .attr("y", height + 50)
-      .text("No. of Fast food centers");
+      .text("No. of Fast food centers")
+      .style("fill","white");
 
     // Add Y axis
     var y = d3.scaleLinear().domain([0, y_max]).range([height, 0]);
-    bettersvg.append("g").call(d3.axisLeft(y));
+    bettersvg.append("g").call(d3.axisLeft(y)).attr("class", "axisWhite");
 
     // Add Y axis label:
     bettersvg
@@ -70,6 +72,7 @@ function betterbubbleChart(selectedDisease) {
       .attr("x", 20)
       .attr("y", 0)
       .text(selectedDisease + " Related Deaths")
+      .style("fill","white")
       .attr("text-anchor", "start");
 
     // Add a scale for bubble size

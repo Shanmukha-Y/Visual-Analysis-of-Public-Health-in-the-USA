@@ -2,8 +2,8 @@ categoricalAttributes = ["State","Region"];
 numericalAttributes = ["Heart","rate","Uninsured","Respiratory","Median AQI","Hospitals","Insurance Firms","Fast Food Centers"];
 function pcp() {
   d3.csv("/static/data/allMerged.csv", function (data) {
-    console.log("Inside PCP ");
-    console.log(data);
+    // console.log("Inside PCP ");
+    // console.log(data);
     d3.select("#svgPcpPlot").html("");
     var PcpMargin = { top: 30, right: 100, bottom: 10, left: 100 },
       PCPWidth = 900 - PcpMargin.left - PcpMargin.right,
@@ -39,7 +39,7 @@ function pcp() {
 
     x.domain(
       (dimensions = d3.keys(data[0]).filter(function (d) {
-        console.log(d);
+        // console.log(d);
 
         if (categoricalAttributes.includes(d)) {
           return (y[d] = d3
@@ -85,8 +85,8 @@ function pcp() {
       .attr("d", path)
       .attr("style", function (d) {
         // return "stroke:" + "rgb(188, 56, 61)" + ";";
-        console.log("Inside this :p");
-        console.log(colors[regions.get(d["Region"])]);
+        // console.log("Inside this :p");
+        // console.log(colors[regions.get(d["Region"])]);
         return "stroke:" + colors[regions.get(d["Region"])] + ";";
       });
 
@@ -138,11 +138,13 @@ function pcp() {
 
     g.append("g")
       .attr("class", "axis")
+      .attr("class", "axisWhite")
       .each(function (d) {
         d3.select(this).call(axis.scale(y[d]));
       });
     g.append("text")
       .style("text-anchor", "middle")
+      .style("fill","white")
       .attr("y", -15)
       .text(function (d) {
         console.log(d);
@@ -153,6 +155,7 @@ function pcp() {
     g.append("g")
       .attr("class", "brush")
       .each(function (d) {
+        // console.log(d)
         d3.select(this).call(
           (y[d].brush = d3
             .brushY()
@@ -168,18 +171,22 @@ function pcp() {
 
     function brush() {
       var actives = [];
+      var regions = [];
       svg
         .selectAll(".brush")
         .filter(function (d) {
+          
           return d3.brushSelection(this);
         })
         .each(function (d) {
+          
           actives.push({
             dimension: d,
             extent: d3.brushSelection(this),
           });
         });
       foreground.classed("fade", function (d, i) {
+        // console.log(d)
         return !actives.every(function (active) {
           var dim = active.dimension;
           return (
@@ -203,7 +210,7 @@ function pcp() {
       // console.log(d);
       return line(
         dimensions.map(function (p) {
-          console.log([position(p), y[p](d[p])]);
+          // console.log([position(p), y[p](d[p])]);
           return [position(p), y[p](d[p])];
         })
       );

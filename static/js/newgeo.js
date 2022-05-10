@@ -181,6 +181,7 @@ d3.csv("/static/data/allMerged.csv", function(data) {
 			.attr("stop-opacity", 1);
 
     legend.append("text")
+    .attr("class", "axisWhite")
     .text(function (d) {
       console.log("Hola Amigos");
       console.log(d);
