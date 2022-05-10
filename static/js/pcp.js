@@ -6,7 +6,7 @@ function pcp() {
     // console.log(data);
     d3.select("#svgPcpPlot").html("");
     var PcpMargin = { top: 30, right: 100, bottom: 10, left: 100 },
-      PCPWidth = 900 - PcpMargin.left - PcpMargin.right,
+      PCPWidth = 859 - PcpMargin.left - PcpMargin.right,
       PCPHeight = 450 - PcpMargin.top - PcpMargin.bottom;
 
     var colors = ["rgb(247, 129, 191)","rgb(166, 86, 40)","rgb(255, 255, 51)","rgb(255, 127, 0)","rgb(152, 78, 163)","rgb(77, 175, 74)","rgb(55, 126, 184)","rgb(228, 26, 28)","rgb(153, 153, 153)"];
@@ -147,7 +147,7 @@ function pcp() {
       .style("fill","white")
       .attr("y", -15)
       .text(function (d) {
-        console.log(d);
+        // console.log(d);
         return d;
       });
 

@@ -29,8 +29,8 @@ d3.csv("/static/data/allMerged.csv", function (data1) {
     }
   }
 
-  console.log(data);
-  console.log(totalCount);
+  // console.log(data);
+  // console.log(totalCount);
 
   // set the color scale
   var color = d3
@@ -99,10 +99,10 @@ var g = svgdonut.selectAll(".arc")
       .attr("d", arc)
       .style("fill", function(d, i) { return color(diseases[i]); })
       .each(function(d) {
-        console.log(d);
+        // console.log(d);
          d.outerRadius = outerRadius - 10; })
          .on('click',function(d) {
-          console.log(d);
+          // console.log(d);
       })
       .on("mousemove", function(d, i) {
           d3.select(this)

@@ -1,7 +1,7 @@
 function geomap(selectedDisease){
 //Width and height of map
-var width = 700;
-var height = 350;
+var width = 800;
+var height = 400;
 
 var geoHeading = document.getElementById("geoHeadingText");
 geoHeading.innerHTML= "Geo Map of "+selectedDisease +" Disease";
@@ -117,15 +117,15 @@ d3.csv("/static/data/allMerged.csv", function(data) {
     	.on('mouseout', tip.hide)
 	  .on('click',function(d) {
         // console.log(d)
-        console.log(d["properties"]["name"]);
+        // console.log(d["properties"]["name"]);
 		getDataForState(d["properties"]["name"]);
 		donut(d["properties"]["name"]);
-    barChart(d["properties"]["name"]);
+    // barChart(d["properties"]["name"]);
     })
       .style("fill", function(d) { return ramp(d.properties.value) });
 
 	  d3.csv("/static/data/fastfoodloc.csv", function(data) {
-		console.log(data);
+		// console.log(data);
 
 		
 		
@@ -183,8 +183,8 @@ d3.csv("/static/data/allMerged.csv", function(data) {
     legend.append("text")
     .attr("class", "axisWhite")
     .text(function (d) {
-      console.log("Hola Amigos");
-      console.log(d);
+      // console.log("Hola Amigos");
+      // console.log(d);
       return "Check if it is here";
     });
 
