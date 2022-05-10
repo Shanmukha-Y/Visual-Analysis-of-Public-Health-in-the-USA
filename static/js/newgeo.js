@@ -159,11 +159,13 @@ d3.csv("/static/data/allMerged.csv", function(data) {
 			.attr("width", w)
 			.attr("height", h)
 			.attr("class", "legend")
+      .attr("fill", "axisWhite")
       .style("margin-top","100px");
 
 		var legend = key.append("defs")
 			.append("svg:linearGradient")
 			.attr("id", "gradient")
+      .attr("fill", "axisWhite")
 			.attr("x1", "100%")
 			.attr("y1", "0%")
 			.attr("x2", "100%")
@@ -181,7 +183,7 @@ d3.csv("/static/data/allMerged.csv", function(data) {
 			.attr("stop-opacity", 1);
 
     legend.append("text")
-    .attr("class", "axisWhite")
+    .attr("fill", "axisWhite")
     .text(function (d) {
       // console.log("Hola Amigos");
       // console.log(d);
