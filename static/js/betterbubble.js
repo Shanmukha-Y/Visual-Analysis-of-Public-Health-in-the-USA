@@ -107,8 +107,8 @@ function betterbubbleChart(selectedDisease) {
     };
     var moveTooltip = function (d) {
       bettertooltip
-        .style("left", d3.mouse(this)[0] + 30 + "px")
-        .style("top", d3.mouse(this)[1] + 550 + "px");
+        .style("left", d3.mouse(this)[0] + 830 + "px")
+        .style("top", d3.mouse(this)[1] + 50 + "px");
     };
     var hideTooltip = function (d) {
       bettertooltip.transition().duration(200).style("opacity", 0);
