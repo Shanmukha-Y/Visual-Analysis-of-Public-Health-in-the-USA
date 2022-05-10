@@ -1,7 +1,7 @@
 function geomap(selectedDisease){
 //Width and height of map
-var width = 700;
-var height = 350;
+var width = 800;
+var height = 400;
 
 var geoHeading = document.getElementById("geoHeadingText");
 geoHeading.innerHTML= "Geo Map of "+selectedDisease +" Disease";

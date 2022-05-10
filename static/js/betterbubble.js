@@ -129,7 +129,7 @@ function betterbubbleChart(selectedDisease) {
     // And when it is not hovered anymore
     var noHighlight = function (d) {
       console.log(d);
-      d3.selectAll(".bubbles").style("opacity", 1);
+      d3.selectAll(".bubbles").style("opacity", 0.8);
     };
 
     // ---------------------------//
