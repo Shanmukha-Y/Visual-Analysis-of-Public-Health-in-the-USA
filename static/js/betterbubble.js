@@ -127,9 +127,13 @@ function betterbubbleChart(selectedDisease) {
       if(typeof d === 'object') {
         console.log("Its an array");
         d = d['Region']
+      } else {
+        console.log("Inside else");
+        pcp(d);
+        console.log(d);
       }
 
-      console.log(d);
+      // console.log(d);
       // reduce opacity of all groups
       d = d.replaceAll(" ",".");
       d3.selectAll(".bubbles").style("opacity", 0.05);
@@ -141,9 +145,14 @@ function betterbubbleChart(selectedDisease) {
 
     // And when it is not hovered anymore
     var noHighlight = function (d) {
+      if(typeof d === 'string') {
+        pcp("");
+      }
+      
       // console.log(d);
       d3.selectAll(".bubbles").style("opacity", 0.8);
     };
+
 
     // ---------------------------//
     //       CIRCLES              //

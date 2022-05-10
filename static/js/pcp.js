@@ -1,9 +1,21 @@
 categoricalAttributes = ["State","Region"];
 numericalAttributes = ["Heart","rate","Uninsured","Respiratory","Median AQI","Hospitals","Insurance Firms","Fast Food Centers"];
-function pcp() {
+function pcp(displayOnly) {
   d3.csv("/static/data/allMerged.csv", function (data) {
     // console.log("Inside PCP ");
     // console.log(data);
+    console.log(displayOnly);
+    if(displayOnly.length != 0) {
+      var d = [];
+
+      for(var i=0;i<data.length;i++) {
+        if(data[i]['Region'] === displayOnly) {
+          d.push(data[i]);
+        }
+      }
+
+      data = d;
+    }
     d3.select("#svgPcpPlot").html("");
     var PcpMargin = { top: 30, right: 100, bottom: 10, left: 100 },
       PCPWidth = 859 - PcpMargin.left - PcpMargin.right,

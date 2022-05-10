@@ -4,7 +4,7 @@ window.onload = function() {
     donut("New York");
     // barChart("New York");
     betterbubbleChart("Heart");
-    pcp();
+    pcp("");
 };
 
 var card = document.querySelector('.card');
