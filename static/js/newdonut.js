@@ -162,7 +162,8 @@ var g = svgdonut.selectAll(".arc")
       .on("click", function() { 
         d3.select(this).transition().duration(200).delay(0).attrTween("d", function(d) {
           console.log(diseases[d['index']]);
-          geomap(diseases[d['index']]);
+          geomap(diseases[d['index']], color(diseases[d['index']]));
+          getDataForState(selectedState, color(diseases[d['index']]));
           betterbubbleChart(diseases[d['index']]);
           var i = d3.interpolate(d.outerRadius, outerRadius);
           return function(t) { d.outerRadius = i(t); return arc(d); };

@@ -1,4 +1,4 @@
-function geomap(selectedDisease){
+function geomap(selectedDisease, textColor){
 //Width and height of map
 var width = 800;
 var height = 400;
@@ -118,7 +118,7 @@ d3.csv("/static/data/allMerged.csv", function(data) {
 	  .on('click',function(d) {
         // console.log(d)
         // console.log(d["properties"]["name"]);
-		getDataForState(d["properties"]["name"]);
+		getDataForState(d["properties"]["name"], textColor);
 		donut(d["properties"]["name"]);
     // barChart(d["properties"]["name"]);
     })
@@ -183,7 +183,7 @@ d3.csv("/static/data/allMerged.csv", function(data) {
 			.attr("stop-opacity", 1);
 
     legend.append("text")
-    .attr("fill", "axisWhite")
+    .attr("fill", "white")
     .text(function (d) {
       // console.log("Hola Amigos");
       // console.log(d);

@@ -1,9 +1,11 @@
 // var currState = "New York";
 
-function getDataForState(currState) {
+function getDataForState(currState, textColor) {
   var paragraph = document.getElementById("cityName");
 
   paragraph.textContent = currState;
+
+  paragraph.style.color = textColor;
 
   // Uninsured
   d3.csv("/static/data/allMerged.csv", function (data) {
@@ -26,12 +28,16 @@ function getDataForState(currState) {
       }
     }
 
-    document.getElementById("deaths").textContent = "Total Deaths:    " + deathCount;
-    document.getElementById("airQuality").textContent =
-      "Air Quality Index:    " + airQuality;
-    document.getElementById("Unemployed").textContent =
-      "Unemployed Rate :    " + unemployed+"%";
-    document.getElementById("Uninsured").textContent =
-      "Total Uninsured:    " + Uninsured;
+    document.getElementById("deathsValue").textContent = deathCount;
+    document.getElementById("deathsValue").style.color = textColor;
+
+    document.getElementById("airQualityValue").textContent = airQuality;
+    document.getElementById("airQualityValue").style.color = textColor;
+
+    document.getElementById("UnemployedValue").textContent = unemployed+"%";
+    document.getElementById("UnemployedValue").style.color = textColor;
+
+    document.getElementById("UninsuredValue").textContent =Uninsured;
+    document.getElementById("UninsuredValue").style.color = textColor;
   });
 }

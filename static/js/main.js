@@ -1,6 +1,6 @@
 window.onload = function() {
-    geomap("Heart");
-    getDataForState("New York");
+    geomap("Heart","#AB2135");
+    getDataForState("New York","#AB2135");
     donut("New York");
     // barChart("New York");
     betterbubbleChart("Heart");

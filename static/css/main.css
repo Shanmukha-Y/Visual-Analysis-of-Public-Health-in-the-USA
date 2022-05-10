@@ -221,12 +221,13 @@ body {
   .axis line,
   .axis path {
     fill: none;
-    stroke: #000;
+    stroke: white;
     shape-rendering: crispEdges;
   }
   
   .axis text {
-    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+    fill:white;
+    /* text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff; */
     cursor: move;
   }
 
@@ -342,7 +343,11 @@ h3 {
   /* letter-spacing: 5px; */
   cursor: pointer;
   /* text-transform: uppercase; */
-  transition: 0.5s;
+  /* transition: 0.5s; */
+}
+
+#deathsValue, #airQualityValue, #UnemployedValue, #UninsuredValue {
+  font-size: 30px;
 }
 
 h3:hover {
