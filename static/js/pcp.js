@@ -18,6 +18,7 @@ function pcp() {
 
     var line = d3.line(),
       axis = d3.axisLeft(),
+      regionAxis = d3.axisRight(),
       background,
       foreground;
 
@@ -140,7 +141,12 @@ function pcp() {
       .attr("class", "axis")
       .attr("class", "axisWhite")
       .each(function (d) {
-        d3.select(this).call(axis.scale(y[d]));
+        console.log(d);
+        if(d == "Region") {
+          d3.select(this).call(regionAxis.scale(y[d]));
+        } else {
+          d3.select(this).call(axis.scale(y[d]));
+        }
       });
     g.append("text")
       .style("text-anchor", "middle")
