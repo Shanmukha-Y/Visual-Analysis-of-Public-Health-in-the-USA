@@ -10,7 +10,7 @@ function betterbubbleChart(selectedDisease) {
   bubbleHeading.innerHTML = "Bubble Chart of " + selectedDisease + " Disease";
   // set the dimensions and margins of the graph
   var margin = {top: 40, right: 250, bottom: 20, left: 50},
-  width = 800 - margin.left - margin.right,
+  width = 880 - margin.left - margin.right,
   height = 420 - margin.top - margin.bottom;
 
     d3.select("#betterBubbleChart").html("");
