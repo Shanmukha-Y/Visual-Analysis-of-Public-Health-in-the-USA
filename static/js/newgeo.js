@@ -117,15 +117,15 @@ d3.csv("/static/data/allMerged.csv", function(data) {
     	.on('mouseout', tip.hide)
 	  .on('click',function(d) {
         // console.log(d)
-        console.log(d["properties"]["name"]);
+        // console.log(d["properties"]["name"]);
 		getDataForState(d["properties"]["name"]);
 		donut(d["properties"]["name"]);
-    barChart(d["properties"]["name"]);
+    // barChart(d["properties"]["name"]);
     })
       .style("fill", function(d) { return ramp(d.properties.value) });
 
 	  d3.csv("/static/data/fastfoodloc.csv", function(data) {
-		console.log(data);
+		// console.log(data);
 
 		
 		
@@ -182,8 +182,8 @@ d3.csv("/static/data/allMerged.csv", function(data) {
 
     legend.append("text")
     .text(function (d) {
-      console.log("Hola Amigos");
-      console.log(d);
+      // console.log("Hola Amigos");
+      // console.log(d);
       return "Check if it is here";
     });
 

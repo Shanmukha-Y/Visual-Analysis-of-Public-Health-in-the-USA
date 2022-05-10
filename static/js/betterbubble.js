@@ -49,14 +49,14 @@ function betterbubbleChart(selectedDisease) {
     bettersvg
       .append("g")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x).ticks(3));
+      .call(d3.axisBottom(x).ticks(5));
 
     // Add X axis label:
     bettersvg
       .append("text")
       .attr("text-anchor", "end")
-      .attr("x", width)
-      .attr("y", height + 50)
+      .attr("x", width+130)
+      .attr("y", height)
       .text("No. of Fast food centers");
 
     // Add Y axis
@@ -123,12 +123,12 @@ function betterbubbleChart(selectedDisease) {
       // expect the one that is hovered
       d3.selectAll("." + d).style("opacity", 1);
 
-      console.log(d);
+      // console.log(d);
     };
 
     // And when it is not hovered anymore
     var noHighlight = function (d) {
-      console.log(d);
+      // console.log(d);
       d3.selectAll(".bubbles").style("opacity", 0.8);
     };
 

@@ -39,7 +39,7 @@ function pcp() {
 
     x.domain(
       (dimensions = d3.keys(data[0]).filter(function (d) {
-        console.log(d);
+        // console.log(d);
 
         if (categoricalAttributes.includes(d)) {
           return (y[d] = d3
@@ -85,8 +85,8 @@ function pcp() {
       .attr("d", path)
       .attr("style", function (d) {
         // return "stroke:" + "rgb(188, 56, 61)" + ";";
-        console.log("Inside this :p");
-        console.log(colors[regions.get(d["Region"])]);
+        // console.log("Inside this :p");
+        // console.log(colors[regions.get(d["Region"])]);
         return "stroke:" + colors[regions.get(d["Region"])] + ";";
       });
 
@@ -145,7 +145,7 @@ function pcp() {
       .style("text-anchor", "middle")
       .attr("y", -15)
       .text(function (d) {
-        console.log(d);
+        // console.log(d);
         return d;
       });
 
@@ -203,7 +203,7 @@ function pcp() {
       // console.log(d);
       return line(
         dimensions.map(function (p) {
-          console.log([position(p), y[p](d[p])]);
+          // console.log([position(p), y[p](d[p])]);
           return [position(p), y[p](d[p])];
         })
       );
