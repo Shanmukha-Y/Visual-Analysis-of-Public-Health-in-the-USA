@@ -98,6 +98,7 @@ function betterbubbleChart(selectedDisease) {
 
     // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the bettertooltip
     var showTooltip = function (d) {
+      highlight(d);
       bettertooltip.transition().duration(200);
       bettertooltip
         .style("opacity", 1)
@@ -106,11 +107,13 @@ function betterbubbleChart(selectedDisease) {
         .style("top", d3.mouse(this)[1] + "px");
     };
     var moveTooltip = function (d) {
+      highlight(d);
       bettertooltip
         .style("left", d3.mouse(this)[0] + 830 + "px")
         .style("top", d3.mouse(this)[1] + 50 + "px");
     };
     var hideTooltip = function (d) {
+      noHighlight(d);
       bettertooltip.transition().duration(200).style("opacity", 0);
     };
 
@@ -120,6 +123,13 @@ function betterbubbleChart(selectedDisease) {
 
     // What to do when one group is hovered
     var highlight = function (d) {
+      console.log(typeof d);
+      if(typeof d === 'object') {
+        console.log("Its an array");
+        d = d['Region']
+      }
+
+      console.log(d);
       // reduce opacity of all groups
       d = d.replaceAll(" ",".");
       d3.selectAll(".bubbles").style("opacity", 0.05);
