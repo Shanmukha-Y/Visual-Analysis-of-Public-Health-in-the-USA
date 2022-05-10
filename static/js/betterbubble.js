@@ -50,7 +50,7 @@ function betterbubbleChart(selectedDisease) {
       .append("g")
       .attr("transform", "translate(0," + height + ")")
       .attr("class", "axisWhite")
-      .call(d3.axisBottom(x).ticks(3));
+      .call(d3.axisBottom(x).ticks(5));
 
     // Add X axis label:
     bettersvg
@@ -189,7 +189,7 @@ function betterbubbleChart(selectedDisease) {
       .data(allgroups)
       .enter()
       .append("circle")
-      .attr("cx", 600)
+      .attr("cx", 650)
       .attr("cy", function (d, i) {
         return 10 + i * (size + 5);
       }) // 100 is where the first dot appears. 25 is the distance between dots
@@ -206,7 +206,7 @@ function betterbubbleChart(selectedDisease) {
       .data(allgroups)
       .enter()
       .append("text")
-      .attr("x", 600 + size * 0.8)
+      .attr("x", 650 + size * 0.8)
       .attr("y", function (d, i) {
         return i * (size + 5) + size / 2;
       }) // 100 is where the first dot appears. 25 is the distance between dots
