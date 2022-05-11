@@ -5,7 +5,7 @@ function getDataForState(currState, textColor) {
 
   paragraph.textContent = currState;
 
-  paragraph.style.color = "#FF934F";
+  paragraph.style.color = "#587B7F";
 
   // Uninsured
   d3.csv("/static/data/allMerged.csv", function (data) {
