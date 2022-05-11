@@ -5,7 +5,7 @@ function getDataForState(currState, textColor) {
 
   paragraph.textContent = currState;
 
-  paragraph.style.color = textColor;
+  paragraph.style.color = "#FF934F";
 
   // Uninsured
   d3.csv("/static/data/allMerged.csv", function (data) {
@@ -29,15 +29,15 @@ function getDataForState(currState, textColor) {
     }
 
     document.getElementById("deathsValue").textContent = deathCount;
-    document.getElementById("deathsValue").style.color = textColor;
+    document.getElementById("deathsValue").style.color = "#FF934F";
 
     document.getElementById("airQualityValue").textContent = airQuality;
-    document.getElementById("airQualityValue").style.color = textColor;
+    document.getElementById("airQualityValue").style.color = "#FF934F";
 
     document.getElementById("UnemployedValue").textContent = unemployed+"%";
-    document.getElementById("UnemployedValue").style.color = textColor;
+    document.getElementById("UnemployedValue").style.color = "#FF934F";
 
     document.getElementById("UninsuredValue").textContent =Uninsured;
-    document.getElementById("UninsuredValue").style.color = textColor;
+    document.getElementById("UninsuredValue").style.color = "#FF934F";
   });
 }
