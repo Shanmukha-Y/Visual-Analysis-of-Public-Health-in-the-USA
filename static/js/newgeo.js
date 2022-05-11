@@ -4,7 +4,7 @@ var width = 800;
 var height = 400;
 
 var geoHeading = document.getElementById("geoHeadingText");
-geoHeading.innerHTML= "Geo Map of "+selectedDisease +" Disease";
+geoHeading.innerHTML= "Choropleth of "+selectedDisease +" Disease related deaths";
 
 if (selectedDisease=="Heart"){
 var lowColor = '#E97452'
