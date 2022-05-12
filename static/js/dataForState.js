@@ -23,7 +23,7 @@ function getDataForState(currState, textColor) {
           parseInt(data[i]["Stroke"]) +
           parseInt(data[i]["Respiratory"]);
         airQuality += parseInt(data[i]["Median AQI"]);
-        unemployed += parseFloat(data[i]["rate"]);
+        unemployed += parseFloat(data[i]["Unemp rate"]);
         Uninsured += parseInt(data[i]["Uninsured"]);
       }
     }

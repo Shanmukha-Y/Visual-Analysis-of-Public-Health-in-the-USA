@@ -1,5 +1,5 @@
 categoricalAttributes = ["State","Region"];
-numericalAttributes = ["Heart","rate","Uninsured","Respiratory","Median AQI","Hospitals","Insurance Firms","Fast Food Centers"];
+numericalAttributes = ["Heart PC","Unemp rate","Cancer PC","Respiratory PC","Median AQI","Hospitals","Firms PC","Stroke PC"];
 function pcp(displayOnly) {
   d3.csv("/static/data/allMerged.csv", function (data) {
     // console.log("Inside PCP ");
