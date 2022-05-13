@@ -190,17 +190,17 @@ var g = svgdonut.selectAll(".arc")
 
     svgdonut.append('text')
         .attr('class', 'toolCircle')
-        .attr('dy', 0) // hard-coded. can adjust this to adjust text vertical alignment in tooltip
-        .html("<br> </br>"+"<br />" +selectedState) // add text to the circle.
+        .attr('dy', 0) 
+        .html("<br> </br>"+"<br />" +selectedState) 
         .style('font-size', 20)
         .style('color','grey')
         .style('text-anchor', 'middle')
-        .style('fill','white') // centres text in tooltip
+        .style('fill','white') 
 
     svgdonut.append('circle')
         .attr('class', 'toolCircle')
-        .attr('r', radius * 0.45) // radius of tooltip circle
-        .style('fill', '#42A5F5') // colour based on category mouse is over
+        .attr('r', radius * 0.45) 
+        .style('fill', '#42A5F5') 
         .style('fill-opacity', 0.35);
 
     });
